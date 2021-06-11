@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
+    "local": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "build:stag": "cp .env.staging .env.local && next build",
+    "build:prod": "cp .env.production .env.local && next build",
+    "start": "NODE_ENV=production node server.js",
+    "local:build-dev": "NODE_ENV=production node server.js",
+    "local:build-stag": "cp .env.staging .env.local && NODE_ENV=production node server.js",
+    "local:build-prod": "cp .env.production .env.local && NODE_ENV=production node server.js"
   },
   "dependencies": {
     "next": "10.2.3",
