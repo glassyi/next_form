@@ -1,8 +1,26 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const test = process.env.NEXT_PUBLIC_SERVICE_DOMAIN;
+  // const api_url = process.env.NEXT_PUBLIC_API_URL;
+
+  useEffect(() => {
+    /*console.log("API_URL >>", api_url);
+
+    fetch(`${api_url}/address/v1/local`, {
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json))
+        .catch((err) => console.error(err));
+*/
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -50,6 +68,8 @@ export default function Home() {
             </p>
           </a>
         </div>
+
+        <div>???? {test}</div>
       </main>
 
       <footer className={styles.footer}>
