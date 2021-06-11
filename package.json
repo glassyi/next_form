@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "env-cmd -f env/.env.development node server.js",
+    "build:dev": "env-cmd -f env/.env.development next build",
+    "build:stag": "env-cmd -f env/.env.staging next build",
+    "build:prod": "env-cmd -f env/.env.production next build",
+    "start": "NODE_ENV=production node server.js",
+    "local:build-dev": "NODE_ENV=production env-cmd -f env/.env.development node server.js",
+    "local:build-stg": "NODE_ENV=production env-cmd -f env/.env.staging node server.js",
+    "local:build-prod": "NODE_ENV=production env-cmd -f env/.env.production node server.js"
   },
   "dependencies": {
+    "env-cmd": "^10.1.0",
     "next": "10.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
